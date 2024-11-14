@@ -4,7 +4,6 @@ import { jwtVerify } from 'jose';
 
 export async function middleware(request: NextRequest) {
     const token = request.cookies.get('token');
-    console.log("Token:", token);
 
     if (!token) {
         return NextResponse.redirect(new URL('/login', request.url));
@@ -17,7 +16,6 @@ export async function middleware(request: NextRequest) {
         }
 
         const { payload } = await jwtVerify(token.value, new TextEncoder().encode(secret));
-        console.log("Payload:", payload);
         
         const response = NextResponse.next();
 

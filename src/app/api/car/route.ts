@@ -2,11 +2,28 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Car } from '@/lib/models';
 import { connectToDb } from '@/lib/utils';
 
+//find all cars of current user
+export async function GET(req: NextRequest) {
+    await connectToDb();
+    const userId = req.headers.get('x-user-id');
+    
+    if (!userId) {
+        return NextResponse.json({ message: "User not authenticated" }, { status: 401 });
+    }
+    
+    try {
+        const cars = await Car.find({ userId });
+        return NextResponse.json({ cars });
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json({ message: "Internal server error" }, { status: 500 });
+    }
+}
+
 export async function POST(req: NextRequest) {
-    connectToDb();
+    await connectToDb();
     const { title, desc, tags, images } = await req.json();
     const userId = req.headers.get('x-user-id');
-    console.log("User ID:", userId);
     
     if (!userId) {
         return NextResponse.json({ message: "User not authenticated" }, { status: 401 });
