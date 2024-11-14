@@ -35,7 +35,7 @@ export default function ProductList() {
             {product.tags.map((tag) => (
               <li key={tag}>{tag}</li>
             ))}
-            <Image src={""} alt={product.title} width={200} height={200} />
+              <Image src={product.images[0]} width={100} height={100} alt="product image" />
           </div>
         ))}
       </ul>

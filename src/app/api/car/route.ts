@@ -23,6 +23,8 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     await connectToDb();
     const { title, desc, tags, images } = await req.json();
+    console.log(title, desc, tags, images);
+    
     const userId = req.headers.get('x-user-id');
     
     if (!userId) {
