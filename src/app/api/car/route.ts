@@ -10,9 +10,19 @@ export async function GET(req: NextRequest) {
     if (!userId) {
         return NextResponse.json({ message: "User not authenticated" }, { status: 401 });
     }
-    
+
+    const searchQuery = req.nextUrl.searchParams.get("search") || "";
+
     try {
-        const cars = await Car.find({ userId });
+        const searchRegex = new RegExp(searchQuery, 'i');
+        const cars = await Car.find({
+            userId,
+            $or: [
+                { title: { $regex: searchRegex } },
+                { desc: { $regex: searchRegex } },
+                { tags: { $in: [searchQuery] } }
+            ]
+        });
         return NextResponse.json({ cars });
     } catch (error) {
         console.log(error);
@@ -23,8 +33,6 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     await connectToDb();
     const { title, desc, tags, images } = await req.json();
-    console.log(title, desc, tags, images);
-    
     const userId = req.headers.get('x-user-id');
     
     if (!userId) {

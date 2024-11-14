@@ -11,7 +11,6 @@ export default function ProductCreate() {
   const handleCreate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
-    console.log(formData);
     
     const inputs = Object.fromEntries(formData.entries());
     
@@ -28,7 +27,6 @@ export default function ProductCreate() {
       }),
     });
     if (response.ok) {
-      console.log('Product created successfully');
       router.push('/productList');
     } else {
       console.error('Failed to create product');
