@@ -14,7 +14,7 @@ export const POST = async (req: NextRequest) => {
             password: hashedPassword,
         });
         await user.save();
-        return NextResponse.json({ user }, { status: 201 });
+        return NextResponse.json({ message: "User registered successfully" }, { status: 201 });
     } catch (error) {
         console.log(error);
         return NextResponse.json({ message: "Internal server error" }, { status: 500 });

@@ -25,7 +25,7 @@ export const POST = async (req: NextRequest) => {
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
-        const response = NextResponse.json({ user }, { status: 200 });
+        const response = NextResponse.json({ message: "Login successful" }, { status: 200 });
         response.headers.set(
             "Set-Cookie",
             `token=${token}; HttpOnly; Path=/; Max-Age=3600; ${process.env.NODE_ENV === 'production' ? 'Secure;' : ''} SameSite=Strict`

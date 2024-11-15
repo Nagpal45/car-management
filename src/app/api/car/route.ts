@@ -48,7 +48,7 @@ export const POST = async (req: NextRequest) => {
             images,
         });
         await car.save();
-        return NextResponse.json({ car }, { status: 201 });
+        return NextResponse.json({ message: "Car added" }, { status: 201 });
     } catch (error) {
         console.log(error);
         return NextResponse.json({ message: "Internal server error" }, { status: 500 });

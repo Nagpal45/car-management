@@ -30,7 +30,7 @@ export const PUT = async (req: NextRequest, { params }: { params: Promise<{ carI
         car.tags = tags;
         car.images = images;
         await car.save();
-        return NextResponse.json({ car }, { status: 200 });
+        return NextResponse.json({ message: "Car updated" }, { status: 200 });
     }
     catch (error) {
         console.log(error);
