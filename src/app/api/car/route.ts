@@ -3,7 +3,7 @@ import { Car } from '@/lib/models';
 import { connectToDb } from '@/lib/utils';
 
 //find all cars of current user
-export async function GET(req: NextRequest) {
+export const GET = async (req: NextRequest) => {
     await connectToDb();
     const userId = req.headers.get('x-user-id');
     
@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
     }
 }
 
-export async function POST(req: NextRequest) {
+export const POST = async (req: NextRequest) => {
     await connectToDb();
     const { title, desc, tags, images } = await req.json();
     const userId = req.headers.get('x-user-id');

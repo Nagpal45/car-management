@@ -3,7 +3,7 @@ import { Car } from '@/lib/models';
 import type { NextRequest } from 'next/server';
 import { connectToDb } from '@/lib/utils';
 
-export async function GET(req: NextRequest, { params }: { params: { carId: string } }) {
+export const GET = async(req: NextRequest, { params }: { params: { carId: string } }) => {
     const {carId} = params;
     try {
         await connectToDb();
@@ -16,7 +16,7 @@ export async function GET(req: NextRequest, { params }: { params: { carId: strin
     }
 }
 
-export async function PUT(req: NextRequest, { params }: { params: { carId: string } }) {
+export const POST = async (req: NextRequest, { params }: { params: { carId: string } }) => {
     const { carId } = params;
     const { title, desc, tags, images } = await req.json();
     try {

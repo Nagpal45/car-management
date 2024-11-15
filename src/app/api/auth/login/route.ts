@@ -1,10 +1,10 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
 import { connectToDb } from '@/lib/utils';
 import { User } from '@/lib/models';
 import bcrypt from 'bcrypt';
 
-export async function POST(req: Request) {
+export const POST = async (req: NextRequest) => {
     const { username, password } = await req.json();
     await connectToDb();
 
