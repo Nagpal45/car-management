@@ -48,6 +48,7 @@ export default function Slider({ images }: SliderProps) {
             onClick={() => setImageIndex(0)}
             width={700}
             height={700}
+            className="cursor-pointer"
           />
         ) : (
           <Image
@@ -68,7 +69,7 @@ export default function Slider({ images }: SliderProps) {
                 onClick={() => setImageIndex(index + 1)}
                 width={300}
                 height={300}
-                className="w-[220px] h-[150px] m-2 rounded-[20px]"
+                className="w-[220px] h-[150px] m-2 rounded-[20px] cursor-pointer"
               />
               {index === 2 && (
                 <div

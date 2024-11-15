@@ -1,8 +1,10 @@
 "use client"
+import { useUser } from "@/lib/authContext"
 import { useRouter } from "next/navigation"
 
 export default function Login() {
   const router = useRouter()
+  const {setIsLoggedIn} = useUser()
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -22,6 +24,7 @@ export default function Login() {
       if (!response.ok) {
         throw new Error('Login failed')
       }
+      setIsLoggedIn(true)
       router.push('/productList');
     } catch (error) {
       console.error(error)
