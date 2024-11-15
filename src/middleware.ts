@@ -10,7 +10,7 @@ export async function middleware(request: NextRequest) {
     if (request.method === 'OPTIONS') {
         const response = new NextResponse(null, { status: 204 });
         response.headers.set('Access-Control-Allow-Origin', allowedOrigins.includes(origin!) ? origin! : '');
-        response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
         response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         return response;
     }
@@ -37,7 +37,7 @@ export async function middleware(request: NextRequest) {
         }
         if (origin && allowedOrigins.includes(origin)) {
             response.headers.set('Access-Control-Allow-Origin', origin);
-            response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+            response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
             response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         }
 

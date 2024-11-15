@@ -16,7 +16,7 @@ export const GET = async(req: NextRequest, { params }: { params: Promise<{ carId
     }
 }
 
-export const POST = async (req: NextRequest, { params }: { params: Promise<{ carId: string }> }) => {
+export const PUT = async (req: NextRequest, { params }: { params: Promise<{ carId: string }> }) => {
     const { carId } = await params;
     const { title, desc, tags, images } = await req.json();
     try {
