@@ -16,7 +16,6 @@ const ProductCreate = () => {
       console.error('Missing env var NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME');
     } else {
       setCloudName(name);
-      console.log(name);
     }
   }, []);
 
