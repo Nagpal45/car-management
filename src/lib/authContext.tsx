@@ -8,7 +8,7 @@ interface UserContextProps {
 
 const UserContext = createContext<UserContextProps | undefined>(undefined);
 
-export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -45,3 +45,5 @@ export const useUser = () => {
   if (!context) throw new Error("useUser must be used within a UserProvider");
   return context;
 };
+
+export default UserProvider;

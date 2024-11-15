@@ -2,7 +2,7 @@
 import { useUser } from "@/lib/authContext"
 import { useRouter } from "next/navigation"
 
-export default function Login() {
+const Login = () => {
   const router = useRouter()
   const {setIsLoggedIn} = useUser()
 
@@ -42,3 +42,5 @@ export default function Login() {
   </div>
   )
 }
+
+export default Login

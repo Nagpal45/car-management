@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation"
 
-export default function Register() {
+const Register = () => {
   const router = useRouter()
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,3 +41,5 @@ export default function Register() {
     </div>
   )
 }
+
+export default Register

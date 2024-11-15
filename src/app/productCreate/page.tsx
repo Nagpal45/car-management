@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function ProductCreate() {
+const ProductCreate = () => {
   const [resources, setResources] = useState<CloudinaryUploadWidgetInfo[]>([]);
   const router = useRouter();
 
@@ -101,3 +101,5 @@ export default function ProductCreate() {
     </div>
   );
 }
+
+export default ProductCreate;

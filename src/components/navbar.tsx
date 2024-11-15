@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useUser } from "@/lib/authContext";
 import { useRouter } from "next/navigation";
 
-export default function Navbar() {
+const Navbar = () => {
   const router = useRouter();
   const {isLoggedIn, setIsLoggedIn} = useUser();
   
@@ -47,3 +47,5 @@ export default function Navbar() {
     </div>
   );
 }
+
+export default Navbar;

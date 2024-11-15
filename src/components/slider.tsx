@@ -5,7 +5,7 @@ interface SliderProps {
   images: string[];
 }
 
-export default function Slider({ images }: SliderProps) {
+const Slider = ({ images }: SliderProps) => {
   const [imageIndex, setImageIndex] = useState<number | null>(null);
 
   return (
@@ -86,3 +86,5 @@ export default function Slider({ images }: SliderProps) {
     </div>
   );
 }
+
+export default Slider;

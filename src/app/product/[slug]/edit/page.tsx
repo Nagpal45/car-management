@@ -4,7 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { CldUploadWidget, CloudinaryUploadWidgetInfo } from "next-cloudinary";
 import Image from "next/image";
 
-export default function ProductEdit() {
+const ProductEdit = () => {
   const { slug } = useParams();
   const router = useRouter();
 
@@ -171,3 +171,5 @@ export default function ProductEdit() {
     </div>
   );
 }
+
+export default ProductEdit;
