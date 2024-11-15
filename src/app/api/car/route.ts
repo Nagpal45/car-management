@@ -46,7 +46,6 @@ export async function POST(req: NextRequest) {
             tags,
             userId,
             images,
-            slug: title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') + '-' + Date.now(),
         });
         await car.save();
         return NextResponse.json({ car }, { status: 201 });

@@ -29,7 +29,6 @@ export async function PUT(req: NextRequest, { params }: { params: { carId: strin
         car.desc = desc;
         car.tags = tags;
         car.images = images;
-        car.slug = title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') + '-' + Date.now();
         await car.save();
         return NextResponse.json({ car }, { status: 200 });
     }
