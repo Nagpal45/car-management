@@ -18,7 +18,7 @@ const ProductList = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch(`http://localhost:3000/api/car?search=${encodeURIComponent(searchQuery)}`);
+      const response = await fetch(`/api/car?search=${encodeURIComponent(searchQuery)}`);
       const data = await response.json();
       setProducts(data.cars);
     };

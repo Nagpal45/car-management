@@ -14,7 +14,7 @@ const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   useEffect(() => {
     const checkLoggedIn = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/auth/isLogged", {
+        const response = await fetch("/api/auth/isLogged", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

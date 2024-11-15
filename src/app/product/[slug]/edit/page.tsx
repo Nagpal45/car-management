@@ -17,13 +17,12 @@ const ProductEdit = () => {
   const [resources, setResources] = useState<string[]>([]);
 
   useEffect(() => {
-    // Fetch the product details when the page loads
     const fetchProduct = async () => {
-      const res = await fetch(`http://localhost:3000/api/car/${slug}`);
+      const res = await fetch(`/api/car/${slug}`);
       const data = await res.json();
       setProduct({
         ...data.car,
-        tags: data.car.tags?.join(", "), // Convert tags array to a comma-separated string
+        tags: data.car.tags?.join(", "),
       });
       setResources(data.car.images || []);
     };

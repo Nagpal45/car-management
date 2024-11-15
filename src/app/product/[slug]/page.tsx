@@ -18,7 +18,7 @@ const Product = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const res = await fetch(`http://localhost:3000/api/car/${carId}`);
+      const res = await fetch(`/api/car/${carId}`);
       const data = await res.json();
       setProduct(data.car);
     };
@@ -30,7 +30,7 @@ const Product = () => {
   };
 
   const handleDelete = async () => {
-    await fetch(`http://localhost:3000/api/car/${carId}`, {
+    await fetch(`/api/car/${carId}`, {
       method: "DELETE",
     });
     router.push("/productList");
