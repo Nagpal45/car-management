@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 export default function Navbar() {
   const router = useRouter();
   const {isLoggedIn, setIsLoggedIn} = useUser();
-  console.log(isLoggedIn);
   
   const handleLogout = async () => {
     try {

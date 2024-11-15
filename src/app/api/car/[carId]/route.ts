@@ -3,8 +3,8 @@ import { Car } from '@/lib/models';
 import type { NextRequest } from 'next/server';
 import { connectToDb } from '@/lib/utils';
 
-export const GET = async(req: NextRequest, { params }: { params: { carId: string } }) => {
-    const {carId} = params;
+export const GET = async(req: NextRequest, { params }: { params: Promise<{ carId: string }> }) => {
+    const {carId} = await params;
     try {
         await connectToDb();
         const car = await Car.findById(carId).exec();
@@ -16,8 +16,8 @@ export const GET = async(req: NextRequest, { params }: { params: { carId: string
     }
 }
 
-export const POST = async (req: NextRequest, { params }: { params: { carId: string } }) => {
-    const { carId } = params;
+export const POST = async (req: NextRequest, { params }: { params: Promise<{ carId: string }> }) => {
+    const { carId } = await params;
     const { title, desc, tags, images } = await req.json();
     try {
         await connectToDb();
@@ -39,8 +39,8 @@ export const POST = async (req: NextRequest, { params }: { params: { carId: stri
 }
 
 
-export async function DELETE(req: NextRequest, { params }: { params: { carId: string } }) {
-    const { carId } = params;
+export const DELETE = async (req: NextRequest, { params }: { params: Promise<{ carId: string }> }) => {
+    const { carId } = await params;
     try {
         await connectToDb();
         const car = await Car.findById(carId).exec();
