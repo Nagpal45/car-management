@@ -26,9 +26,10 @@ export const Product = () => {
 
 
 
-  const handleEdit = async () => {
-    
+  const handleEdit = () => {
+    router.push(`/product/${carId}/edit`);
   };
+  
 
   const  handleDelete = async () =>{
     await fetch(`http://localhost:3000/api/car/${carId}`, {

@@ -36,7 +36,7 @@ export default function ProductList() {
         className="border border-black px-4 py-2 mt-5 rounded-md self-start ml-20 w-[50%]"
       />
       <div className="flex flex-col items-center justify-center w-[90%] pb-20">
-        {products.length === 0 && <p>Create New Products</p>}
+        {products.length === 0 && <p className="mt-48">Create New Products</p>}
         {products.map((product) => (
           <div key={product._id} className="mt-10 w-full h-[150px] flex flex-row border shadow-lg rounded-[20px] overflow-hidden">
             <Image src={product.images[0] || 'https://images.pexels.com/photos/29355951/pexels-photo-29355951/free-photo-of-audi-sedan-parked-in-urban-setting-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'} width={600} height={100} alt="product image" className="w-[20%]" />

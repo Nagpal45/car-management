@@ -52,8 +52,8 @@ export default function Slider({ images }: SliderProps) {
         ) : (
           <Image
             src="https://images.pexels.com/photos/29355951/pexels-photo-29355951/free-photo-of-audi-sedan-parked-in-urban-setting-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            width={500}
-            height={500}
+            width={700}
+            height={700}
             alt=""
           />
         )}
