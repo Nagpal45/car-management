@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 const Register = () => {
@@ -37,6 +38,7 @@ const Register = () => {
         <input className='p-4 w-[50%] border border-gray-500' type='email' placeholder='Email' />
         <input className='p-4 w-[50%] border border-gray-500' type='password' placeholder='Password' />
         <button className='p-4 w-[30%] bg-green-500 text-white rounded rounded-[40px]' type="submit">Register</button>
+        <p>Already having an account? <Link href='/login' className="underline text-blue-500">Login now</Link></p>
       </form>
     </div>
   )

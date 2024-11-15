@@ -1,5 +1,6 @@
 "use client"
 import { useUser } from "@/lib/authContext"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 const Login = () => {
@@ -38,6 +39,7 @@ const Login = () => {
         <input className='p-4 w-[50%] border border-gray-500' type='text' placeholder='Username'/>
         <input className='p-4 w-[50%] border border-gray-500' type='password' placeholder='Password' />
         <button className='p-4 w-[30%] bg-blue-500 text-white rounded rounded-[40px]' type="submit">Login</button>
+        <p>Not having an account? <Link href='/register' className="underline text-blue-500">Register now</Link></p>
       </form>
   </div>
   )
