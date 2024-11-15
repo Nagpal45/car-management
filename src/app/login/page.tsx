@@ -15,7 +15,7 @@ const Login = () => {
       password: (form[1] as HTMLInputElement).value
     }
     try {
-      const response = await fetch(`/api/auth/register`, {
+      const response = await fetch(`/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
