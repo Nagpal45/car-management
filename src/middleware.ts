@@ -49,5 +49,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/api/car/:path*', '/product/:path*', '/productCreate', '/productList'],
+    matcher: ['/api/car/:path*', '/product/:path*', '/productCreate'],
 };
