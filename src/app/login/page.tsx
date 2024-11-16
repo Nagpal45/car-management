@@ -25,8 +25,8 @@ const Login = () => {
       if (!response.ok) {
         throw new Error('Login failed')
       }
-      router.push('/productList');
       setIsLoggedIn(true)
+      router.push('/')
     } catch (error) {
       console.error(error)
     }
